@@ -1,0 +1,37 @@
+# Install order matters — torch, torchvision, and vllm must all agree on an
+# exact torch version, and torch's CUDA build must be no newer than the
+# compute node's driver actually supports.
+#
+# PINNED, not >=: an earlier `pip install "vllm>=0.6.0"` silently resolved to
+# whatever the newest vllm was at install time (0.23.0), which requires an
+# exact torch==2.11.0 that was never installed — vllm then failed to import
+# (`ModuleNotFoundError: torch._inductor.custom_graph_pass`) and the runner
+# silently fell back to the ~10-20x slower HF backend. vllm>=0.8.0 is also the
+# actual floor for Qwen3 support (vllm 0.6.x/0.7.x predate Qwen3 entirely and
+# will not recognize the architecture, despite satisfying a loose >=0.6.0).
+#
+# cu118, not cu121/cu124: torch 2.6.0 has no cu121 wheel. cu118 wheels run on
+# any driver new enough for CUDA 11.8 (i.e. essentially any V100 driver in
+# service), which is safer than guessing whether a cu124+ wheel matches the
+# node's exact driver — installing a too-new CUDA build silently makes
+# torch.cuda.is_available() return False rather than erroring loudly.
+#
+# Step 1 (torch + vision, must be installed together from the same index):
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu118
+# Step 2 (everything else):
+#   pip install -r requirements.txt
+#
+# PYTHONNOUSERSITE=1 must be set before running anything (see scripts/run.sh
+# and scripts/stage3.sbatch) — a broken ~/.local scikit-learn install
+# (missing joblib) shadows the conda env's packages otherwise and breaks the
+# transformers -> vllm import chain with an unrelated-looking ModuleNotFoundError.
+torch==2.6.0                    # pinned to cu118 wheel in Step 1 above
+torchvision==0.21.0              # must match torch exactly; install with torch in Step 1
+vllm==0.8.5                      # earliest vllm with Qwen3 support; pinned to match torch==2.6.0
+transformers>=4.51,<5.0
+accelerate>=0.30
+datasets>=2.18,<3.0
+pandas
+numpy
+matplotlib
+anthropic>=0.40                 # Stage 3: Claude Haiku as the faithfulness judge

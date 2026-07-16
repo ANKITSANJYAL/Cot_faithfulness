@@ -1,0 +1,28 @@
+{
+  "model_name": "google/gemma-3-4b-it",
+  "dtype": "float32",
+  "enforce_eager": true,
+  "enable_chunked_prefill": false,
+  "max_model_len": 8192,
+  "n_per_dataset": 200,
+  "max_tokens_cot": 2048,
+  "max_tokens_direct": 32,
+  "temperature": 0.0,
+  "max_tokens_cot_by_dataset": {
+    "GSM8K": 2048,
+    "CommonsenseQA": 512,
+    "MMLU": 2048
+  },
+  "datasets": [
+    "GSM8K",
+    "CommonsenseQA",
+    "MMLU"
+  ],
+  "seed": 0,
+  "out_dir": "outputs/gemma3_4B",
+  "chance": {
+    "GSM8K": 0.0,
+    "CommonsenseQA": 0.2,
+    "MMLU": 0.25
+  }
+}

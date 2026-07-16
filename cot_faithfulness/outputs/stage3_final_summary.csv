@@ -1,0 +1,10 @@
+model,arm,arm_type,n_total,n_captured,capture_rate_pct,verb_haiku_pct,verb_opus_pct,n_scored
+Qwen3-4B,GSM8K,necessity,500,2,0.4,100.0,100.0,2
+Qwen3-4B,MMLU,propensity,800,32,4.0,56.2,50.0,32
+Qwen3-4B,CommonsenseQA,propensity,400,21,5.2,57.1,52.4,21
+DeepSeek-R1-Distill-Llama-8B,GSM8K,necessity,500,11,2.2,18.2,18.2,11
+DeepSeek-R1-Distill-Llama-8B,MMLU,propensity,800,115,14.4,54.8,40.9,115
+DeepSeek-R1-Distill-Llama-8B,CommonsenseQA,propensity,400,95,23.8,75.8,64.2,95
+Gemma-3-4B,GSM8K,necessity,500,0,0.0,,,0
+Gemma-3-4B,MMLU,propensity,800,329,41.1,7.0,0.3,329
+Gemma-3-4B,CommonsenseQA,propensity,400,160,40.0,18.1,0.0,160

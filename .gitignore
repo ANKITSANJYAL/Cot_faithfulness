@@ -1,0 +1,44 @@
+# --- Secrets ---
+.env
+*.env
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+
+# --- Python caches / build artifacts ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- Old project archives (kept out of git; use releases/attachments instead) ---
+*.tar.gz
+*.tar_*.gz
+*.tar
+
+# --- Run scratch: resume checkpoints and hand-label backups ---
+# checkpoint_*.csv are deleted automatically on a clean finish; ignore the
+# stragglers left by an interrupted run. *.BACKUP_*.csv are local safety copies
+# of the human-validation files, not results to publish.
+checkpoint_*.csv
+**/checkpoint_stage*_*.csv
+*.BACKUP_*.csv
+
+# --- Intermediate/diagnostic run dirs (not part of the published results) ---
+# The canonical results live in the per-model dirs (qwen3_4B/, stage3_qwen3_4B/,
+# stage3_gemma3_4B/, stage3_deepseek_r1_distill_8B/, ...) plus
+# outputs/stage3_final_summary.csv. These were scratch/diagnostic passes.
+cot_faithfulness/outputs/stage3/
+cot_faithfulness/outputs/stage3_check/
+cot_faithfulness/outputs/stage3_diag/
+cot_faithfulness/outputs/stage3_diag_strong/
+cot_faithfulness/outputs/stage3_diag_strong_v2/
+cot_faithfulness/outputs/stage3_full/
+# Smoke tests are self-judged pipeline checks — never-reported by design.
+cot_faithfulness/outputs/stage3_smoke_*/
+
+# --- OS / editor cruft ---
+.DS_Store
+*.swp

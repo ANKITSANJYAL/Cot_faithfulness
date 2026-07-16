@@ -1,0 +1,4 @@
+dataset,n,n_captured,capture_rate,string_match_verbalization_rate,judge_verbalization_rate
+CommonsenseQA,400,95,0.238,0.347,0.758
+GSM8K,500,11,0.022,0.182,0.182
+MMLU,800,115,0.144,0.383,0.548

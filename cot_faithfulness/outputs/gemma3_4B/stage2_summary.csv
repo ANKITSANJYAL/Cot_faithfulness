@@ -1,0 +1,4 @@
+dataset,n,with_cot_acc,no_cot_acc,cot_complete_rate,gap,chance,above_chance
+CommonsenseQA,200,0.715,0.695,0.0,0.02,0.2,True
+GSM8K,200,0.85,0.16,0.0,0.69,0.0,True
+MMLU,200,0.575,0.62,0.0,-0.045,0.25,True
