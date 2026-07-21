@@ -1,0 +1,128 @@
+<style>
+.gtbl-wrap {
+  font-family: Roboto, "Google Sans", "Helvetica Neue", Arial, sans-serif;
+  color: #202124;
+  max-width: 100%;
+  margin: 0 0 40px;
+}
+.gtbl-wrap h3 {
+  font-size: 16px; font-weight: 500; color: #202124;
+  margin: 0 0 4px; letter-spacing: .1px;
+}
+.gtbl-wrap .gtbl-sub {
+  font-size: 13px; color: #5F6368; margin: 0 0 14px; line-height: 1.5;
+}
+.gtbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table.gtbl {
+  border-collapse: collapse; width: 100%; min-width: 560px;
+  font-size: 13.5px; background: #fff;
+}
+table.gtbl caption { caption-side: top; text-align: left; padding: 0 0 10px; }
+table.gtbl th {
+  font-weight: 500; color: #5F6368; text-align: left;
+  padding: 10px 16px; border-bottom: 1px solid #DADCE0; white-space: nowrap;
+}
+table.gtbl td {
+  padding: 11px 16px; border-bottom: 1px solid #E8EAED;
+  font-variant-numeric: tabular-nums; color: #202124;
+}
+table.gtbl td.num, table.gtbl th.num { text-align: right; }
+table.gtbl td.ctr, table.gtbl th.ctr { text-align: center; }
+table.gtbl tbody tr:hover { background: #F8F9FA; }
+table.gtbl tbody tr:last-child td { border-bottom: none; }
+table.gtbl .grp { font-weight: 500; color: #202124; white-space: nowrap; }
+table.gtbl .hi { font-weight: 500; color: #EA4335; }
+table.gtbl .ns { color: #5F6368; }
+.gtbl-note {
+  font-size: 12px; color: #5F6368; line-height: 1.6;
+  margin: 10px 0 0; padding-top: 10px; border-top: 1px solid #F1F3F4;
+}
+@media (prefers-color-scheme: dark) {
+  .gtbl-wrap, table.gtbl td { color: #E8EAED; }
+  .gtbl-wrap h3 { color: #E8EAED; }
+  table.gtbl { background: transparent; }
+  table.gtbl th { color: #9AA0A6; border-bottom-color: #5F6368; }
+  table.gtbl td { border-bottom-color: #3C4043; }
+  table.gtbl tbody tr:hover { background: #292A2D; }
+  table.gtbl .grp { color: #E8EAED; }
+  .gtbl-wrap .gtbl-sub, .gtbl-note { color: #9AA0A6; }
+  .gtbl-note { border-top-color: #3C4043; }
+}
+</style>
+
+<div class="gtbl-wrap">
+  <h3>A.1 &nbsp;Capture: does necessity suppress capture relative to propensity?</h3>
+  <p class="gtbl-sub">Referenced in §4.1. Nine contrasts; the largest <em>p</em>-value is 1.9 × 10⁻⁵.</p>
+  <div class="gtbl-scroll">
+  <table class="gtbl">
+    <thead>
+      <tr>
+        <th>Model</th><th>Comparison</th>
+        <th class="num">Capture (necessity)</th><th class="num">Capture (propensity)</th>
+        <th class="num">Odds ratio</th><th class="num"><em>p</em></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="grp">Qwen3-4B</td><td>GSM8K vs MMLU</td><td class="num">2/500 (0.4%)</td><td class="num">32/800 (4.0%)</td><td class="num">0.096</td><td class="num">1.9 × 10⁻⁵</td></tr>
+      <tr><td></td><td>GSM8K vs CommonsenseQA</td><td class="num">2/500 (0.4%)</td><td class="num">21/400 (5.2%)</td><td class="num">0.072</td><td class="num">3.7 × 10⁻⁶</td></tr>
+      <tr><td></td><td>GSM8K vs pooled propensity</td><td class="num">2/500 (0.4%)</td><td class="num">53/1200 (4.4%)</td><td class="num">0.087</td><td class="num">1.4 × 10⁻⁶</td></tr>
+      <tr><td class="grp">DeepSeek-R1-Distill-8B</td><td>GSM8K vs MMLU</td><td class="num">11/500 (2.2%)</td><td class="num">115/800 (14.4%)</td><td class="num">0.134</td><td class="num">6.0 × 10⁻¹⁵</td></tr>
+      <tr><td></td><td>GSM8K vs CommonsenseQA</td><td class="num">11/500 (2.2%)</td><td class="num">95/400 (23.8%)</td><td class="num">0.072</td><td class="num">5.0 × 10⁻²⁵</td></tr>
+      <tr><td></td><td>GSM8K vs pooled propensity</td><td class="num">11/500 (2.2%)</td><td class="num">210/1200 (17.5%)</td><td class="num">0.106</td><td class="num">4.2 × 10⁻²²</td></tr>
+      <tr><td class="grp">Gemma-3-4B</td><td>GSM8K vs MMLU</td><td class="num">0/500 (0.0%)</td><td class="num">329/800 (41.1%)</td><td class="num">0.001</td><td class="num">1.1 × 10⁻⁸⁴</td></tr>
+      <tr><td></td><td>GSM8K vs CommonsenseQA</td><td class="num">0/500 (0.0%)</td><td class="num">160/400 (40.0%)</td><td class="num">0.001</td><td class="num">1.1 × 10⁻⁶⁶</td></tr>
+      <tr><td></td><td>GSM8K vs pooled propensity</td><td class="num">0/500 (0.0%)</td><td class="num">489/1200 (40.8%)</td><td class="num">0.001</td><td class="num">2.3 × 10⁻⁹¹</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="gtbl-note">All contrasts significant at p &lt; 0.001. Odds ratios below 1 mean capture is <em>less</em> likely on the necessity arm. Zero-cell odds ratios use the Haldane correction.</p>
+</div>
+
+<div class="gtbl-wrap">
+  <h3>A.2 &nbsp;Disclosure on the propensity arms (Opus judge)</h3>
+  <p class="gtbl-sub">Referenced in §4.2.</p>
+  <div class="gtbl-scroll">
+  <table class="gtbl">
+    <thead>
+      <tr><th>Model</th><th class="num">Disclosed</th><th class="num">Rate</th><th class="ctr">95% CI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="grp">Qwen3-4B</td><td class="num">27/53</td><td class="num">50.9%</td><td class="ctr">[37.9%, 63.9%]</td></tr>
+      <tr><td class="grp">DeepSeek-R1-Distill-8B</td><td class="num">108/210</td><td class="num">51.4%</td><td class="ctr">[44.7%, 58.1%]</td></tr>
+      <tr><td class="grp">Gemma-3-4B</td><td class="num">1/489</td><td class="num hi">0.2%</td><td class="ctr">[0.0%, 1.1%]</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="gtbl-scroll" style="margin-top:18px">
+  <table class="gtbl">
+    <thead>
+      <tr><th>Comparison</th><th class="num">Odds ratio</th><th class="num"><em>p</em></th><th class="ctr"></th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Qwen3-4B vs DeepSeek-R1-Distill-8B</td><td class="num">0.98</td><td class="num">1.00</td><td class="ctr ns">n.s.</td></tr>
+      <tr><td>Qwen3-4B vs Gemma-3-4B</td><td class="num">506.8</td><td class="num">8.3 × 10⁻³⁰</td><td class="ctr">***</td></tr>
+      <tr><td>DeepSeek-R1-Distill-8B vs Gemma-3-4B</td><td class="num">516.7</td><td class="num">3.8 × 10⁻⁶⁶</td><td class="ctr">***</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="gtbl-note">The two disclosing models are statistically indistinguishable from each other; both differ from Gemma by roughly thirty orders of magnitude in <em>p</em>. This is the basis for calling the difference categorical rather than a gradient.</p>
+</div>
+
+<div class="gtbl-wrap">
+  <h3>A.3 &nbsp;Disclosure on the necessity arm</h3>
+  <p class="gtbl-sub">Referenced in §4.3.</p>
+  <div class="gtbl-scroll">
+  <table class="gtbl">
+    <thead>
+      <tr><th>Model</th><th>Arm</th><th class="num">Disclosed</th><th class="num">Rate</th><th class="ctr">95% CI</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="grp">DeepSeek-R1-Distill-8B</td><td>GSM8K (necessity)</td><td class="num">2/11</td><td class="num">18.2%</td><td class="ctr">[5.1%, 47.7%]</td></tr>
+      <tr><td class="grp">DeepSeek-R1-Distill-8B</td><td>Propensity (pooled)</td><td class="num">108/210</td><td class="num">51.4%</td><td class="ctr">[44.7%, 58.1%]</td></tr>
+      <tr><td class="grp">Qwen3-4B</td><td>GSM8K (necessity)</td><td class="num">2/2</td><td class="num">100%</td><td class="ctr">[34.2%, 100.0%]</td></tr>
+      <tr><td class="grp">Gemma-3-4B</td><td>GSM8K (necessity)</td><td class="num">—</td><td class="num">—</td><td class="ctr ns">0 captures</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="gtbl-note">DeepSeek necessity vs propensity: Fisher OR = 0.210, <strong>p = 0.059, not significant</strong>. Qwen's interval spans 34.2%–100% and is compatible with almost any true rate. Neither necessity cell constrains the hypothesis.</p>
+</div>
